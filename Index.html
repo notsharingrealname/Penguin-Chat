@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penguin Notes</title>
+    <style>
+      .chat-container {
+        display: flex;
+      }
+      .chat-messages {
+        background: greenyellow;
+        flex: 3;
+        border: 1px solid #ff0000;
+        padding: 10px;
+        margin-right: 10px;
+        height: 300px;
+        overflow-y: scroll;
+      }
+      .name-input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="name-input"
+          class="name-input"
+          placeholder="Your Name"
+        />
+        <input type="Note" id="Note-input" placeholder="Type your Note..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script>
+      function sendMessage() {
+        const name = document.getElementById("name-input").value;
+        const message = document.getElementById("message-input").value;
+        const chatMessages = document.getElementById("chat-messages");
+
+        if (name && message) {
+          const messageElement = document.createElement("div");
+          messageElement.innerText = `${name}: ${message}`;
+          chatMessages.appendChild(messageElement);
+        }
+
+        document.getElementById("message-input").value = "";
+      }
+    </script>
+  </body>
+</html>
